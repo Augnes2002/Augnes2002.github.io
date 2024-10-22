@@ -1,353 +1,207 @@
-*{
-    margin:0;
-    font-family:'Arial';
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
     box-sizing: border-box;
 }
-body{
-    background:rgb(0, 0, 0);
-    color:white;
+
+body {
+    background: linear-gradient(180deg, #f7f7f7, #eaeaea); 
+    color: rgb(0, 0, 0);
 }
-.header{
-    width:100%;
-    height:100vh;
-    background-image: url(images/Screenshot\ 2024-10-17\ 170530.png);
-    background-size: cover;
-    background-position: center;
+
+.header {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.85), rgba(240, 240, 240, 0.85)), url('images/news-pattern.png') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
-.logo {
-    width:200px;
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
 }
-.container{
-    padding:10px 10%; 
+
+.container {
+    padding: 10px 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
 }
-nav{
-    display:flex;
+
+nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 10px 20px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    z-index: 2; 
 }
-nav ul li{
-    display: inline-block;
+
+
+nav ul {
+    display: flex; 
+    align-items: center;
+    margin :0 20px;
+}
+
+nav ul li {
     list-style: none;
-    margin:10px 20px;
+    margin: 0 10px;
 }
-nav ul li a{
-    color: white;
+
+nav ul li a {
+    color: rgb(22, 21, 21);
     text-decoration: none;
     font-size: 18px;
-    position:relative;
+    position: relative;
 }
-nav ul li a::after{
-    content:'';
-    width:0;
-    height:3px;
+
+nav ul li a::after {
+    content: '';
+    width: 0;
+    height: 3px;
     background-color: rgb(210, 49, 9);
-    position:absolute;
+    position: absolute;
     left: 0;
     bottom: -6px;
     transition: 0.5s;
 }
-nav ul li a:hover::after{
-    width: 100%;
 
+nav ul li a:hover::after {
+    width: 100%;
 }
-.header-text{
-    margin-top:20%;
-    font-size: 30px;
-}
-.header-text h1{
-    margin-top:20px;
-    font-size: 60px;
-}
-.header-text h1 span{
-    color: rgb(199, 0, 0);
-}
-/*-------------about-----------*/
-#about{
-    padding :80px 0;
-    color: rgb(255, 255, 255);
-}
-.row{
+
+.header-content {
     display: flex;
     justify-content: space-between;
-    padding:20px;
+    align-items: center;
+    width: 100%; 
+    max-width: 1200px; 
+    margin-top: 30px; 
+}
 
+.header-text {
+    flex: 1; /* Flex grow for responsive */
+    text-align: left;
+    padding-right: 20px; /* Spacing from slider */
 }
-.about-col-1{
-    flex-basis: 35%;
-}
-.about-col-1 img{
-    width:100%;
-    border-radius: 15px;
-}
-.about-col-2{
-    flex-basis:60%;
-}
-.subtitle{
-   font-size: 60px;
-   font-weight:600;
-   color:white; 
-}
-.tabtitles{
-    display:flex;
-    margin:20px 0 40px;
-}
-.tab-links{
-    margin-right: 50px;
-    font-size: 18px;
-    font-weight:500;
-    cursor:pointer;
-    position:relative;
-}
-.tab-links::after{
-    content:'';
-    width: 0;
-    height: 3px;
-    background-color: rgb(202, 28, 28);
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    transition:0.5s;
-}
-.tab-links.active-link::after{
-    width:50%;
-}
-.tab_contents ul li{
-  list-style: none;
-  margin:10px 0;
-}
-.tab_contents ul li span{
-    color:rgb(216, 179, 11);
-    font-size: 18px;
 
+.header-text h1 {
+    font-size: 60px;
+    color: #a20404;
 }
-.tab_contents{
-    display: none;
+
+.header-text h3 {
+    font-size: 25px;
+    color: #000;
 }
-.tab_contents.active-tab{
-    display:block;
-}
-/*-----------------------------Services---------------------------*/
-#services{
-    padding: 30px 0;
-}
-.services-list{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px, 1fr));
-    grid-gap:40px;
-    margin-top:50px;
-}
-.services-list div{
-    background-color:rgb(57, 53, 53);
-    padding: 40px;
-    font-size:13px;
-    border-radius:10px;
-    transition: background 0.5s,transform 0.5s;
-}
-.icon{
-    font-size: 50px;
-    margin-bottom:30px;
-}
-.services-list div h2{
-    font-size: 30px;
-    font-weight: 300;
-    margin-bottom: 15px;
-}
-.services-list div a{
-    text-decoration: none;
-    color: #fff;
-    font-size: 12px;
-    margin-top: 20px;
-    display: inline-block;
-}
-.services-list div:hover{
-   background: rgb(177, 155, 75); 
-   transform: translateY(-10px);
-}
-/*-----------------Portfolio---------*/
-#portfolio{
-    padding:50px 0; 
-}
-.worklist{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px, 1fr));
-    grid-gap:40px;
-    margin-top:50px;
-}
-.work{
-    border-radius: 10px;
+
+.image-slider {
+    flex: 1; /* Flex grow for responsive */
     position: relative;
     overflow: hidden;
+    margin: 0 15px; /* Add margin for spacing */
+    border-radius: 15px;
 }
-.work img{
-    width:100%;
-    border-radius:10px;
-    display:block;
-    transition: transform 0.5s;
 
+.slider-image {
+    width: 100%;
+    height: 100%;
+    display: none;
 }
-.layer{
-    width:100%;
-    height:0;
-    background: linear-gradient(rgba(0,0,0,0.5),#ff004f);
-    border-radius:10px;
-    position: absolute;
-    left:0;
-    bottom:0;
-    overflow:hidden;
+
+.slider-image.active {
+    display: block;
+}
+.search-form {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 40px;
-    text-align: center;
-    font-size: 14px;
-    transition:height 0.5s;
-}
-.layer h3{
-    font-weight: 500;
-    margin-bottom: 20px;
-}
-.layer span{
-    margin-top:20;
-    color: rgb(177, 155, 75);
-    text-decoration: none;
-    font-size: 28px;
-    line-height: 60px;
-    background:white;
-    width:60px;
-    height: 60px;
-    border-radius:50%;
-    text-align: center;
-
-
-}
-.services-list span{
-    font-size: 50px;
-}
-.work:hover img{
-    transform: scale(1.1 );
-}
-.work:hover .layer{
-    height: 100%;
-}
-.btn{
-    display:block;
-    margin:50px;
-    width:fit-content;
-    border:1px solid rgb(177, 155, 75);
-    padding: 14px 50px;
-    border-radius: 10px;
-    text-decoration: none;
-    color:white;
-    transition: background 0.5s;
-}
-.btn:hover{
-    background-color: rgba(200, 171, 4, 0.905);
-    color:black;
-}
-/*--------------Contact-----------------*/
-.contactleft{
-    flex-basis:35% ;
-    margin-left: 20px;
-}
-.contactright{
-    flex-basis:60% ;
-    margin-left: 20px;
-}
-.contactleft p{
-    margin-top: 30px;
-
-}
-.contactleft p span{
-    color:rgb(177, 155, 75);
-    margin-right:15px;
-    font-size: 25px;
-}
-.socialmedia {
-    margin-top: 30px;
-    display: flex; 
-    justify-content: center; 
+    margin-top: 10px; /* Adds space between nav links and search bar */
 }
 
-.socialmedia a {
-    text-decoration: none;
-    margin-right: 15px;
-    color: azure;
-    display: inline-block;
-    transition: transform 0.5s;
+.search-form input[type="text"] {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 5px;
 }
 
-.socialmedia a:hover {
-    color: beige;
-    transform: translateY(-5px);
-}
-
-.socialmedia img {
-    width: 100px; 
-    height: 100px; 
-}
-
-.btn.btn2{
-    display:inline-block ;
-    background: rgba(200, 171, 4, 0.905);
-}
-.contactright form{
-    width: 100%;
-}
-form input,form textarea{
-    width: 80%;
-    border: 0;
-    outline: none;
-    background:rgb(45, 42, 42);
-    padding :15px;
-    margin:15px 0;
-    color:white;
-    font-size: 18px;
-    border-radius: 6px;
-
-}
-form btn2{
-    padding: 14px 60px;
-    font-size: 18px;
-    margin-top: 20px;
-    cursor: pointer;
-}
-.copyright{
-    width:100%;
-    text-align: center;
-    padding: 25px;
-    background:#262626 ;
-}
-.copyright span{
-    color:#ff004f;
-}
-/*------------------Projects----------*/
-.size{
-    width:100px;
-    height:100px;
+.search-form button {
+    padding: 6px 10px;
     border: none;
-    border-radius: 50px;
-    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: rgb(210, 49, 9);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
-/*-----------------CSS for small screen----------*/
-nav.span{
-    display:none;
+
+.search-form button:hover {
+    background-color: rgb(180, 30, 0); /* Darker shade on hover */
 }
-@media only screen and (max-width:600px){
-    .header{
-        background-image: url(images/WhatsApp\ Image\ 2024-10-17\ at\ 4.33.17\ PM.jpeg);
+.typewriter {
+    display: inline-block;
+    overflow: hidden; /* Ensures the text is hidden initially */
+    border-right: 3px solid rgba(210, 49, 9, 0.75); /* Cursor effect */
+    white-space: nowrap; /* Prevents line breaks */
+    animation: typing 3s steps(10, end), blink-caret 0.75s step-end infinite; /* Typewriter and cursor blinking */
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+        opacity: 0; /* Start with no opacity */
     }
-    .header-text{
-        margin-top:100%;
-        font-size: 16px;
+    50% {
+        opacity: 1; /* Fade in during typing */
     }
-    .header-text h1{
-        font-size: 30px;
+    100% {
+        width: 100%;
     }
 }
-#msg{
-    color: #bcad06;
-    margin-top: -40px;
-    display: block;
+
+@keyframes blink-caret {
+    50% { border-color: transparent; }
+}
+
+/*-----------------------------------Cards--------------------------------------*/
+.main{
+    padding-block: 20px;
+    margin-top: 80px;
+}
+.cards-container{
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    align-items: start;
+}
+.card{
+    width:360px;
+    min-height: 400px;
+    box-shadow:0 0 4px wheat ;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: white;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.card:hover{
+    box-shadow: 1px 1px 8px rgb(162, 143, 107) ;
+    background-color: rgb(255, 187, 0);
+    transform: translate(-2px);
+    tra
+
 }
